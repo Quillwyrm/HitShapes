@@ -7,7 +7,7 @@
                                                                                 BY QUILLWYRM
 ```
 
-A lightweight 2D collision detection module for LOVE2D using HUMP vectors.
+A lightweight 2D collision detection module for LÖVE using HUMP vectors.
 
 ## Features
 
