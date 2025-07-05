@@ -19,8 +19,8 @@ A lightweight 2D collision detection module for LÖVE.
   - Ray vs Ray
   - Circle vs Ray
   - Box vs Ray
-- Uses `hump.vector` for [vector math](https://github.com/vrld/hump).
 - Simple API for creating shapes and performing collision tests.
+- Uses `hump.vector` for [vector math](https://github.com/vrld/hump).
 - Made with [LÖVE](https://love2d.org).
 
 ## Installation
