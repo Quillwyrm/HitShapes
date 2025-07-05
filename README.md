@@ -7,11 +7,11 @@
                                                                                 BY QUILLWYRM
 ```
 
-A lightweight 2D collision detection module for LÖVE using hump vectors. (https://github.com/vrld/hump) (https://love2d.org/)
+A lightweight 2D collision detection module for LÖVE using hump vectors.  
 
 ## Features
 
-- Supports Axis-Aligned Bounding Boxes (AABB), Circles, and Rays.
+- Supports Axis-Aligned Bounding Boxes (AABB), Radials (Circle), and Rays (line).
 - Collision checks for all shape combinations:
   - Box vs Box
   - Circle vs Circle
@@ -19,8 +19,9 @@ A lightweight 2D collision detection module for LÖVE using hump vectors. (https
   - Ray vs Ray
   - Circle vs Ray
   - Box vs Ray
-- Uses `hump.vector` for vector math.
+- Uses `hump.vector` for vector math. (https://github.com/vrld/hump)
 - Simple API for creating shapes and performing collision tests.
+- Made with LÖVE[https://love2d.org/](#LÖVE).
 
 ## Installation
 
