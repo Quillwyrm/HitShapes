@@ -7,7 +7,7 @@
                                                                                 BY QUILLWYRM
 ```
 
-A lightweight 2D collision detection module for LÖVE using hump vectors.  
+A lightweight 2D collision detection module for LÖVE.
 
 ## Features
 
@@ -19,9 +19,9 @@ A lightweight 2D collision detection module for LÖVE using hump vectors.
   - Ray vs Ray
   - Circle vs Ray
   - Box vs Ray
-- Uses `hump.vector` for vector math. (https://github.com/vrld/hump)
+- Uses `hump.vector` for [vector math](https://github.com/vrld/hump).
 - Simple API for creating shapes and performing collision tests.
-- Made with LÖVE[https://love2d.org/](#LÖVE).
+- Made with [LÖVE](https://love2d.org).
 
 ## Installation
 
