@@ -1,28 +1,34 @@
-
 --    _|    _|  _|_|_|  _|_|_|_|_|    _|_|_|  _|    _|    _|_|    _|_|_|    _|_|_|_|    _|_|_|
 --    _|    _|    _|        _|      _|        _|    _|  _|    _|  _|    _|  _|        _|
 --    _|_|_|_|    _|        _|        _|_|    _|_|_|_|  _|_|_|_|  _|_|_|    _|_|_|      _|_|
 --    _|    _|    _|        _|            _|  _|    _|  _|    _|  _|        _|              _|
 --    _|    _|  _|_|_|      _|      _|_|_|    _|    _|  _|    _|  _|        _|_|_|_|  _|_|_|
---                                                                                BY QUILLWYRM
+--    HIT DETECTION API                                                          |QUILLWYRM|
 
-local Vector = require("hump.vector")
+local vectools = require("vectools")
+
+local Vec    = vectools.Vec
+local len2   = vectools.len2
+local cross  = vectools.cross
+local sqrt   = math.sqrt
+local max    = math.max
+local min    = math.min
 
 -- HitShape Types ===========================================================================[
 
 -- HitBox -- Axis-aligned bounding box (AABB)
 local HitBox = function(x, y, width, height) -- x, y = top-left corner
-  return { type = "box", pos = Vector(x, y), w = width, h = height }
+  return { type = "box", pos = Vec(x, y), w = width, h = height }
 end
 
 -- HitRad -- Circle by center and radius
 local HitRad = function(x, y, radius)
-  return { type = "rad", pos = Vector(x, y), r = radius }
+  return { type = "rad", pos = Vec(x, y), r = radius }
 end
 
 -- HitRay -- Line segment by start and end points
 local HitRay = function(x1, y1, x2, y2)
-  return { type = "ray", start = Vector(x1, y1), finish = Vector(x2, y2) }
+  return { type = "ray", start = Vec(x1, y1), finish = Vec(x2, y2) }
 end
 
 -- Collision Detection =======================================================================[
@@ -38,7 +44,7 @@ end
 -- Check Circle vs Circle overlap
 local checkRadRad = function(rad_a, rad_b)
   local delta = rad_a.pos - rad_b.pos
-  local dist_sq = delta:len2()
+  local dist_sq = len2(delta)
   local radius_sum = rad_a.r + rad_b.r
   return dist_sq <= radius_sum * radius_sum
 end
@@ -47,8 +53,8 @@ end
 local checkBoxRad = function(box, rad)
   local cx = math.max(box.pos.x, math.min(rad.pos.x, box.pos.x + box.w))
   local cy = math.max(box.pos.y, math.min(rad.pos.y, box.pos.y + box.h))
-  local delta = rad.pos - Vector(cx, cy)
-  return delta:len2() <= rad.r * rad.r
+  local delta = rad.pos - Vec(cx, cy)
+  return len2(delta) <= rad.r * rad.r
 end
 
 -- Check Ray vs Ray (segment-segment intersection)
